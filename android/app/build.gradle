@@ -1,0 +1,43 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.capstone1"
+    compileSdk = 34 // 최신 SDK 버전으로 설정
+
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8" // Kotlin JVM 타겟 버전
+    }
+
+    defaultConfig {
+        applicationId "com.example.capstone1"
+        minSdkVersion 24 // 최소 SDK 버전
+        targetSdkVersion  34 // 최신 SDK 버전으로 설정
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            shrinkResources false // 리소스 축소 비활성화
+            minifyEnabled false // 코드 축소 비활성화
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+flutter {
+    source = "../.."
+}
+
